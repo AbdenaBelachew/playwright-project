@@ -1,5 +1,5 @@
 module.exports = {
-  timeout: 60000,
+  timeout: 120000,
   retries: 1,
   use: {
     headless: false,

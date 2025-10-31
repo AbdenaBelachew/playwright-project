@@ -1,10 +1,15 @@
-import { test } from "@playwright/test";
-import { LoginPage } from "../pages/LoginPage";
+const { test } = require("@playwright/test");
+const { LoginPage } = require("../pages/LoginPage");
+const { DashboardPage } = require("../pages/DashboardPage");
+const { testUser } = require("../utils/testData");
 
 test("Login Test using POM", async ({ page }) => {
-  const login = new LoginPage(page);
+  const loginPage = new LoginPage(page);
+  const dashboardPage = new DashboardPage(page);
 
-  await login.navigate(); // ✅ navigate added
-  await login.enterCredentials("admin", "password");
-  await login.clickLogin();
+  await loginPage.navigate();
+  await loginPage.enterCredentials(testUser.username, testUser.password);
+  await loginPage.clickLogin();
+
+  await dashboardPage.verifyDashboardPage();
 });

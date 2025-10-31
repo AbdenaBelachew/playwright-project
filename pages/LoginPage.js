@@ -7,7 +7,7 @@ export class LoginPage {
   }
 
   async navigate() {
-    await this.page.goto("https://your-app-url-here.com/login");
+    await this.page.goto("https://www.google.com/");
   }
 
   async enterCredentials(username, password) {
